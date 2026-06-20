@@ -124,6 +124,7 @@ if (rsvpForm) {
             contact: contact,
             attendance: attendanceSelected.value,
             guests: document.getElementById('guests').value,
+             overnight: document.querySelector('input[name="overnight"]:checked')?.value || 'no', // <-- ДОБАВИТЬ
             message: document.getElementById('message').value.trim() || ''
         };
         
@@ -148,6 +149,7 @@ async function submitRSVP(formData) {
         data.append('contact', formData.contact);
         data.append('attendance', formData.attendance);
         data.append('guests', formData.guests);
+        data.append('overnight', formData.overnight);
         data.append('message', formData.message);
         
         // Отправляем запрос
